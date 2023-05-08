@@ -1,5 +1,13 @@
+import ListItem from "./ListItem";
+
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  return (
+    <ul className="sidebar">
+      <ListItem />
+      <ListItem />
+      <ListItem />
+    </ul>
+  );
 };
 
 export default Sidebar;

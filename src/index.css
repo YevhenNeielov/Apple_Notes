@@ -27,6 +27,12 @@ input:focus {
   flex-direction: column;
 }
 
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
 /* Header */
 
 .header {
