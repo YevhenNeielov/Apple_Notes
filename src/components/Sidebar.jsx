@@ -1,11 +1,13 @@
 import ListItem from "./ListItem";
 
-const Sidebar = () => {
+const Sidebar = ({ notes, activeNote, setActiveNote }) => {
   return (
     <ul className="sidebar">
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      <ListItem
+        notes={notes}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
+      />
     </ul>
   );
 };
