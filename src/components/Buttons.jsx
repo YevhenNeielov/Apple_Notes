@@ -1,6 +1,12 @@
 import { FaPlus, FaTrash, FaEdit } from "react-icons/fa";
 
-const Buttons = ({ onAddNote, activeNote, onDeleteNote }) => {
+const Buttons = ({
+  onAddNote,
+  activeNote,
+  onDeleteNote,
+  onEditMode,
+  editMode,
+}) => {
   return (
     <div className="buttons">
       <div className="button button_always-active" onClick={onAddNote}>
@@ -12,7 +18,12 @@ const Buttons = ({ onAddNote, activeNote, onDeleteNote }) => {
       >
         <FaTrash />
       </div>
-      <div className={`button ${activeNote ? "button-active" : ""}`}>
+      <div
+        className={`button ${activeNote ? "button-active" : ""} ${
+          editMode ? "button-colored" : ""
+        }`}
+        onClick={() => onEditMode()}
+      >
         <FaEdit />
       </div>
     </div>

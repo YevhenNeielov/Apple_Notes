@@ -66,6 +66,10 @@ li {
   opacity: 1;
 }
 
+.button-colored {
+  background-color: rgb(193, 193, 240);
+}
+
 .searchbox {
   position: relative;
 }
@@ -77,19 +81,8 @@ li {
   padding: 5px;
 }
 
-.search-hide {
-  position: absolute;
-}
-
-.search-hide_left {
-  top: calc(50% - 8px);
-  left: calc(50% - 38px);
-  cursor: text;
-}
-
-.search-hide_right {
-  top: calc(50% - 9px);
-  left: calc(50% - 13px);
+.search::placeholder {
+  text-align: center;
 }
 
 /* Sidebar */
@@ -133,6 +126,7 @@ li {
 
 .note-text {
   grid-column: 2 / 3;
+  font-size: 12px;
 }
 
 /* Workspace */
@@ -155,6 +149,28 @@ textarea {
   height: 50px;
   font-size: 2rem;
   margin-bottom: 20px;
+}
+
+.empty-workspace {
+  height: calc(50vh - 62px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-text {
+  font-size: 2rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.empty-img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Breakpoints */
@@ -187,6 +203,11 @@ textarea {
   }
   .workspace input {
     height: 50px;
+  }
+
+  .empty-workspace {
+    width: 70%;
+    height: calc(100vh - 48px);
   }
 }
 
