@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import grumpy from "../i/Grumpy_cat.jpg";
 
 const Workspace = ({ getActiveNote, onUpdateNote, editMode }) => {
@@ -39,6 +40,12 @@ const Workspace = ({ getActiveNote, onUpdateNote, editMode }) => {
       ></textarea>
     </div>
   );
+};
+
+Workspace.propTypes = {
+  getActiveNote: PropTypes.object,
+  onUpdateNote: PropTypes.func.isRequired,
+  editMode: PropTypes.bool.isRequired,
 };
 
 export default Workspace;

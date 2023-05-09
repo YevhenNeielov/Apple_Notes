@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { FaPlus, FaTrash, FaEdit } from "react-icons/fa";
 
 const Buttons = ({
@@ -28,6 +29,14 @@ const Buttons = ({
       </div>
     </div>
   );
+};
+
+Buttons.propTypes = {
+  onAddNote: PropTypes.func.isRequired,
+  activeNote: PropTypes.string.isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onEditMode: PropTypes.func.isRequired,
+  editMode: PropTypes.bool.isRequired,
 };
 
 export default Buttons;

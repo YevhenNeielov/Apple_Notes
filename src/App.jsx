@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generate as id } from "shortid";
 
 import Buttons from "./components/Buttons";
@@ -7,9 +7,16 @@ import Sidebar from "./components/Sidebar";
 import Workspace from "./components/Workspace";
 
 function App() {
-  const [notes, setNotes] = useState([]);
-  const [activeNote, setActiveNote] = useState(false);
+  const [notes, setNotes] = useState(
+    localStorage.storedNotes ? JSON.parse(localStorage.storedNotes) : []
+  );
+  const [activeNote, setActiveNote] = useState("");
   const [editMode, setEditMode] = useState(false);
+  const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("storedNotes", JSON.stringify(notes));
+  }, [notes]);
 
   const onAddNote = () => {
     const newNote = {
@@ -25,13 +32,20 @@ function App() {
   };
 
   const onDeleteNote = () => {
+    if (
+      activeNote &&
+      !window.confirm("Are you sure you want to delete this note?")
+    ) {
+      return;
+    }
+
     setNotes(notes.filter((note) => note.id !== activeNote));
-    setActiveNote(false);
+    setActiveNote("");
     setEditMode(false);
   };
 
   const onEditMode = () => {
-    setEditMode(true);
+    activeNote && setEditMode(true);
   };
 
   const onUpdateNote = (updatedNote) => {
@@ -49,6 +63,11 @@ function App() {
     return notes.find((note) => note.id === activeNote);
   };
 
+  const onSearchText = (value) => {
+    setSearchText(value);
+    setActiveNote("");
+  };
+
   return (
     <div className="container">
       <div className="header">
@@ -59,7 +78,7 @@ function App() {
           onEditMode={onEditMode}
           editMode={editMode}
         />
-        <SearchBox />
+        <SearchBox onSearchText={onSearchText} />
       </div>
       <div className="main">
         <Sidebar
@@ -67,6 +86,7 @@ function App() {
           activeNote={activeNote}
           setActiveNote={setActiveNote}
           setEditMode={setEditMode}
+          searchText={searchText}
         />
         <Workspace
           getActiveNote={getActiveNote()}
