@@ -1,12 +1,6 @@
 import PropTypes from "prop-types";
 
 const ListItem = ({ note, activeNote, setActiveNote, setEditMode }) => {
-  let titleChecked =
-    note.title.length > 35 ? note.title.slice(0, 35) + "..." : note.title;
-
-  let textChecked =
-    note.text.length > 55 ? note.text.slice(0, 55) + "..." : note.text;
-
   return (
     <li
       className={`listitem ${note.id === activeNote ? "active" : ""}`}
@@ -15,14 +9,14 @@ const ListItem = ({ note, activeNote, setActiveNote, setEditMode }) => {
         setEditMode(false);
       }}
     >
-      <p className="note-title">{titleChecked}</p>
+      <p className="note-title">{note.title}</p>
       <p className="note-date">
         {new Date(note.date).toLocaleDateString("uk-Ua", {
           hour: "2-digit",
           minute: "2-digit",
         })}
       </p>
-      <p className="note-text">{textChecked}</p>
+      <p className="note-text">{note.text}</p>
     </li>
   );
 };

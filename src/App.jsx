@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { generate as id } from "shortid";
 
-import Buttons from "./components/Buttons";
+import ButtonsBox from "./components/ButtonsBox";
 import SearchBox from "./components/SearchBox";
 import Sidebar from "./components/Sidebar";
 import Workspace from "./components/Workspace";
@@ -72,7 +72,7 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-        <Buttons
+        <ButtonsBox
           onAddNote={onAddNote}
           activeNote={activeNote}
           onDeleteNote={onDeleteNote}
