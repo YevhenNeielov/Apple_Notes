@@ -16,10 +16,7 @@ function App() {
       id: id(),
       title: "Note title",
       text: "Empty",
-      date: new Date(Date.now()).toLocaleDateString("uk-Ua", {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
+      date: Date.now(),
     };
 
     setActiveNote(newNote.id);

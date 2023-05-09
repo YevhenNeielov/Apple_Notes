@@ -5,10 +5,7 @@ const Workspace = ({ getActiveNote, onUpdateNote, editMode }) => {
     onUpdateNote({
       ...getActiveNote,
       [key]: value,
-      date: new Date(Date.now()).toLocaleDateString("uk-Ua", {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
+      date: Date.now(),
     });
   };
 
