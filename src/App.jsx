@@ -66,6 +66,7 @@ function App() {
   const onSearchText = (value) => {
     setSearchText(value);
     setActiveNote("");
+    setEditMode(false);
   };
 
   return (

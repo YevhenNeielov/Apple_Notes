@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import grumpy from "../i/Grumpy_cat.jpg";
+import grumpy from "../assets/images/Grumpy_cat.jpg";
 
 const Workspace = ({ getActiveNote, onUpdateNote, editMode }) => {
   const onEditNote = (key, value) => {
